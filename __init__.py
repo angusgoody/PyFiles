@@ -27,24 +27,35 @@ class homeScreen(screen):
         self.middle=mainFrame(self)
         self.bottomBar=mainFrame(self)
         #Position Frames
-        self.topBar.grid(row=0,column=0,sticky="EW",padx=20,pady=20)
-        self.filterFrame.grid(row=1,column=0,sticky="EW")
+        self.topBar.grid(row=0,column=0,sticky="EW",padx=20,pady=(20,5))
+        self.filterFrame.grid(row=1,column=0,sticky="EW",padx=20,pady=(5,20))
         self.middle.grid(row=2,column=0,sticky="NSEW")
         self.bottomBar.grid(row=3,column=0,sticky="EW")
         #Configire Frames
         #---Top---
         self.topBar.grid_rowconfigure(0,weight=1)
         self.topBar.grid_columnconfigure(0,weight=1)
+        #---Filter---
+        self.filterFrame.grid_columnconfigure(0,weight=1)
         #---Middle---
         self.middle.grid_rowconfigure(0,weight=1)
         self.middle.grid_columnconfigure(0,weight=1)
 
 
         #-----Top Bar-------
-        self.pathEntry=Entry(self.topBar,state=DISABLED)
-        self.pathEntry.grid(row=0,column=0,sticky="EW")
+        self.pathLabel=Label(self.topBar,borderwidth=2, relief="groove")
+        self.pathLabel.grid(row=0,column=0,sticky="EW")
         self.pathButton=Button(self.topBar,text="Browse")
         self.pathButton.grid(row=0,column=1,padx=(10,0))
+
+        #-----Filter frame-------
+        Label(self.filterFrame,text="Search").grid(row=0,column=0)
+        self.searchEntry=Entry(self.filterFrame)
+        self.searchEntry.grid(row=1,column=0,sticky="EW")
+        self.recursiveCheck=Checkbutton(self.filterFrame,text="Recursively")
+        self.recursiveCheck.grid(row=1,column=1,sticky="E")
+        self.filterButton=Button(self.filterFrame,text="Filter")
+        self.filterButton.grid(row=2,column=0,columnspan=2,pady=(20,5))
 
         #-----Middle-------
         self.mainListbox=advancedListbox(self.middle)
@@ -53,6 +64,10 @@ class homeScreen(screen):
         #-----Bottom-------
         self.myButton=Button(self.bottomBar,text="Hello")
         self.myButton.grid(row=0,column=0)
+
+
+        #====END=====
+        self.colour("#262A34")
 
 
 
