@@ -1,0 +1,3 @@
+[submodule "shed"]
+	path = shed
+	url = git@github.com:angusgoody/shed.git
