@@ -62,8 +62,10 @@ class homeScreen(screen):
         self.mainListbox.grid(row=0,column=0,sticky="NSEW")
 
         #-----Bottom-------
-        self.myButton=Button(self.bottomBar,text="Hello")
+        self.myButton=Button(self.bottomBar,text="Delete")
         self.myButton.grid(row=0,column=0)
+        self.addButton=Button(self.bottomBar,text="Add")
+        self.addButton.grid(row=0,column=1)
 
 
         #====END=====
